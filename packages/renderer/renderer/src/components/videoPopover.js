@@ -94,13 +94,13 @@ export default (class VideoModal extends React.Component<Props> {
             };
           } else if (videoObj && videoObj.provider === "vimeo") {
             slateObj = {
-              type: youkuType,
+              type: vimeoType,
               isVoid: true,
               data: { [idKey]: videoObj.id }
             };
           } else if (videoObj && videoObj.provider === "youku") {
             slateObj = {
-              type: vimeoType,
+              type: youkuType,
               isVoid: true,
               data: { [idKey]: videoObj.id }
             };
@@ -144,10 +144,7 @@ export default (class VideoModal extends React.Component<Props> {
     const { isEditing, initialValue, children } = this.props;
     const content = (
       <Form horizontal="true" onClick={e => e.preventDefault()}>
-        <FormItem
-          label="Enter video URL (support Vimeo, Youtube, Dailymotion, Youku):"
-          hasFeedback
-        >
+        <FormItem label="Enter video URL (support Vimeo, Youtube):" hasFeedback>
           {getFieldDecorator("href", {
             rules: [
               {
