@@ -137,7 +137,7 @@ export default class ImageInline extends React.Component<
       <div style={{ display: "inline-block" }}>
         <Popover
           visible={isShow}
-          title="Add Image"
+          title="Add Image URL"
           placement="bottom"
           trigger="click"
           content={content}
