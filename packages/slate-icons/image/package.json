@@ -1,5 +1,5 @@
 {
-  "name": "@canner/slate-icon-image",
+  "name": "@keethealth/slate-icon-image",
   "version": "1.5.0",
   "description": "Slate icon for image",
   "main": "lib/index.js",
