@@ -3,8 +3,8 @@ import * as React from "react";
 import type { IconProps } from "shared/src/types";
 import { Popover } from "antd";
 import ToolbarIcon from "@canner/slate-icon-shared";
-import { Container } from "@canner/image-upload";
-import { IntlProvider, FormattedMessage, addLocaleData } from "react-intl";
+import Container from "./Container";
+import { IntlProvider, addLocaleData } from "react-intl";
 import { IMAGE } from "@canner/slate-constant/lib/inlines";
 import imageNode from "@canner/slate-editor-renderer/lib/imageNode";
 
@@ -111,25 +111,12 @@ export default class ImageInline extends React.Component<
   };
 
   render() {
-    const {
-      icon,
-      serviceConfig,
-      galleryConfig,
-      multiple,
-      ...rest
-    } = this.props;
+    const { icon, ...rest } = this.props;
     const { isShow } = this.state;
     const onClick = e => this.onClick(e);
     const content = (
       <IntlProvider locale={"en"} defaultLocale="en" messages={enLocale}>
-        <Container
-          serviceConfig={serviceConfig}
-          galleryConfig={galleryConfig}
-          multiple={multiple}
-          onChange={this.onChange}
-          closeEditPopup={this.hidePopover}
-          editPopup={isShow}
-        />
+        <Container onChange={this.onChange} closeEditPopup={this.hidePopover} />
       </IntlProvider>
     );
 
@@ -137,7 +124,7 @@ export default class ImageInline extends React.Component<
       <div style={{ display: "inline-block" }}>
         <Popover
           visible={isShow}
-          title="Add Image"
+          title="Add Image URL"
           placement="bottom"
           trigger="click"
           content={content}
